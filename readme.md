@@ -10,37 +10,7 @@ El objetivo de este taller es aprender los conceptos fundamentales de multi-thre
 ### Paso 1: Configuración del Proyecto
 
 #### Configuración del `pom.xml`
-Para este taller, podemos utilizar una configuración básica de Maven:
-
-```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.example</groupId>
-    <artifactId>multi-threading</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <dependencies>
-        <!-- Dependencias estándar -->
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
+El `pom.xml` del repositorio ya viene configurado (Java 17, `exec-maven-plugin` para correr cada ejemplo, JUnit 5 para pruebas) — no hace falta crear uno nuevo. Los cinco ejemplos de abajo ya existen como clases reales en `src/main/java/edu/unisabana/dyas/multithreading/basics/`, listas para ejecutar.
 
 ### Paso 2: Ejemplos de Multi-threading en Java
 
@@ -308,9 +278,22 @@ public class CustomThreadExample {
 El multi-threading es una poderosa herramienta para mejorar el rendimiento y la capacidad de respuesta de las aplicaciones. Las estrategias y técnicas que hemos explorado en este taller son fundamentales para construir aplicaciones concurrentes y escalables. Continuar practicando con estos conceptos y explorando otros aspectos de la concurrencia te permitirá construir aplicaciones más robustas y eficientes.
 
 ### Ejecución del Taller
-1. Configura tu entorno de desarrollo con las dependencias necesarias.
-2. Implementa y ejecuta cada ejemplo de multi-threading en Java.
-3. Crea y comparte tu propio ejemplo utilizando las estrategias aprendidas.
+
+```bash
+mvn compile
+
+mvn exec:java -Dexec.mainClass=edu.unisabana.dyas.multithreading.basics.ThreadExample
+mvn exec:java -Dexec.mainClass=edu.unisabana.dyas.multithreading.basics.RunnableExample
+mvn exec:java -Dexec.mainClass=edu.unisabana.dyas.multithreading.basics.SynchronizedExample
+mvn exec:java -Dexec.mainClass=edu.unisabana.dyas.multithreading.basics.ExecutorServiceExample
+mvn exec:java -Dexec.mainClass=edu.unisabana.dyas.multithreading.basics.CallableExample
+```
+
+1. Ejecuta cada uno de los cinco ejemplos anteriores y observa su salida (en `SynchronizedExample`, ejecútalo varias veces — el resultado siempre debe ser `2000`).
+2. Crea `CustomThreadExample` (o el nombre que prefieras) en el mismo paquete, aplicando la estrategia que mejor se ajuste a tu caso de uso.
+3. Comparte tu ejemplo y discute con los demás estudiantes las diferentes implementaciones y enfoques utilizados.
 4. Experimenta con otras técnicas de concurrencia y casos de uso para profundizar en tu comprensión del multi-threading.
+
+> Para la evaluación de nivel de maestría sobre estos mismos componentes, ver [`docs/prueba-guia-maestria.md`](docs/prueba-guia-maestria.md).
 
 Este taller proporciona una base sólida para comenzar a trabajar con multi-threading en Java y fomenta la creación de ejemplos propios para reforzar el aprendizaje.

@@ -1,0 +1,8 @@
+# Maven
+target/
+
+# IDE files
+.idea/
+*.iml
+
+*.ini
