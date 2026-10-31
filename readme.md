@@ -10,7 +10,7 @@ El objetivo de este taller es aprender los conceptos fundamentales de multi-thre
 ### Paso 1: Configuración del Proyecto
 
 #### Configuración del `pom.xml`
-El `pom.xml` del repositorio ya viene configurado (Java 17, `exec-maven-plugin` para correr cada ejemplo, JUnit 5 para pruebas) — no hace falta crear uno nuevo. Los cinco ejemplos de abajo ya existen como clases reales en `src/main/java/edu/unisabana/dyas/multithreading/basics/`, listas para ejecutar.
+El `pom.xml` del repositorio ya viene configurado (Java 21, `exec-maven-plugin` para correr cada ejemplo, JUnit 5 para pruebas) — no hace falta crear uno nuevo. Los cinco ejemplos de abajo ya existen como clases reales en `src/main/java/edu/unisabana/dyas/multithreading/basics/`, listas para ejecutar.
 
 ### Paso 2: Ejemplos de Multi-threading en Java
 
@@ -266,6 +266,19 @@ public class CustomThreadExample {
     }
 }
 ```
+
+### Criterios de evaluación
+
+* Funcionalidad.
+	1. Los cinco ejemplos base se ejecutan, y `SynchronizedExample` siempre muestra `2000`.
+	2. El ejemplo propio resuelve un caso de uso concreto y su salida demuestra que el trabajo se hace en varios hilos.
+* Implementación.
+	1. El ejemplo propio protege los datos compartidos (`synchronized`, clases atómicas o colecciones concurrentes) y no tiene condiciones de carrera.
+	2. Si usa `ExecutorService`, lo cierra al terminar (`shutdown` y espera de terminación, o *try-with-resources*).
+* Justificación.
+	1. El código o un `INFORME.md` explica por qué eligió esa estrategia (`Thread`, `Runnable`, `ExecutorService`, `Callable`) frente a las otras y qué pasaría sin sincronización.
+* Pruebas.
+	1. Hay al menos una prueba JUnit 5 que verifica el resultado del ejemplo propio, y pasa con `mvn test`.
 
 ### Paso 4: Resumen y Conclusión
 
